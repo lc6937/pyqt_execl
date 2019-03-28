@@ -67,16 +67,16 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
-            <widget class="QPushButton" name="clear_pushButton">
+            <widget class="QPushButton" name="search_pushButton">
              <property name="text">
-              <string>清空</string>
+              <string>查询</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="search_pushButton">
+            <widget class="QPushButton" name="clear_pushButton">
              <property name="text">
-              <string>查询</string>
+              <string>清空</string>
              </property>
             </widget>
            </item>
@@ -293,19 +293,31 @@ execl:</string>
     <property name="title">
      <string>软件信息</string>
     </property>
+    <addaction name="actionversion"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="cursor">
      <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="title">
-     <string>版本</string>
+     <string>设置</string>
     </property>
+    <addaction name="actionconfig"/>
    </widget>
    <addaction name="menu_2"/>
    <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionconfig">
+   <property name="text">
+    <string>config</string>
+   </property>
+  </action>
+  <action name="actionversion">
+   <property name="text">
+    <string>version</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

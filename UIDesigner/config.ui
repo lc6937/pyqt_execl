@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>conf_Dialog</class>
+ <widget class="QDialog" name="conf_Dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>392</width>
-    <height>422</height>
+    <height>423</height>
    </rect>
   </property>
   <property name="font">
@@ -21,7 +21,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,8">
+    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,8">
      <property name="leftMargin">
       <number>10</number>
      </property>
@@ -35,20 +35,15 @@
       <number>5</number>
      </property>
      <item>
-      <layout class="QFormLayout" name="formLayout">
-       <property name="leftMargin">
-        <number>20</number>
-       </property>
-       <property name="topMargin">
-        <number>10</number>
-       </property>
-       <property name="rightMargin">
-        <number>20</number>
-       </property>
-       <property name="bottomMargin">
-        <number>10</number>
-       </property>
-       <item row="0" column="0">
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="2">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>端口:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
         <widget class="QLabel" name="label">
          <property name="font">
           <font>
@@ -57,14 +52,23 @@
           </font>
          </property>
          <property name="text">
-          <string>数据库连接地址</string>
+          <string>数据库地址:</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="user"/>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLineEdit" name="port"/>
+       </item>
+       <item row="2" column="3">
+        <widget class="QLineEdit" name="password"/>
+       </item>
+       <item row="2" column="0">
         <widget class="QLabel" name="label_2">
          <property name="font">
           <font>
@@ -73,25 +77,29 @@
           </font>
          </property>
          <property name="text">
-          <string>账号/密码</string>
+          <string>账号:</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QPushButton" name="pushButton">
+       <item row="2" column="2">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>密码:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="db_address"/>
+       </item>
+       <item row="3" column="3">
+        <widget class="QPushButton" name="testconnect_pushButton">
          <property name="text">
           <string>测试链接</string>
          </property>
         </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="lineEdit"/>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEdit_2"/>
        </item>
       </layout>
      </item>
@@ -104,7 +112,11 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QTableView" name="tableView"/>
+           <widget class="QTableView" name="relation_tableView">
+            <property name="showGrid">
+             <bool>true</bool>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -132,7 +144,7 @@
             </font>
            </property>
            <property name="text">
-            <string>显示名称</string>
+            <string>显示名称:</string>
            </property>
           </widget>
          </item>
@@ -145,25 +157,25 @@
             </font>
            </property>
            <property name="text">
-            <string>对应表名</string>
+            <string>对应表名:</string>
            </property>
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QPushButton" name="add_connection">
+          <widget class="QPushButton" name="add_relation_pushButton">
            <property name="text">
             <string>添加对应关系</string>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="lineEdit_3"/>
+          <widget class="QLineEdit" name="show_name"/>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="lineEdit_4"/>
+          <widget class="QLineEdit" name="table_name"/>
          </item>
          <item row="3" column="0">
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="del_relation_pushButton">
            <property name="text">
             <string>删除选中项</string>
            </property>
@@ -192,7 +204,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>conf_Dialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -208,7 +220,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>conf_Dialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
